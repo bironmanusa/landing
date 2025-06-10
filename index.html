@@ -6,117 +6,413 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Vite App</title>
+    <title>DentalPro</title>
+
+   <style>
+      #menu-toggle:checked+#menu {
+         display: block;
+      }
+
+      #dropdown-toggle:checked+#dropdown {
+         display: block;
+      }
+
+      a,
+      span {
+         position: relative;
+         text-decoration: none;
+         transition: all 0.3s ease;
+      }
+
+      a.arrow,
+      span.arrow {
+         display: flex;
+         align-items: center;
+         font-weight: 600;
+         line-height: 1.5;
+      }
+
+      a.arrow .arrow_icon,
+      span.arrow .arrow_icon {
+         position: relative;
+         margin-left: 0.5em;
+      }
+
+      a.arrow .arrow_icon svg,
+      span.arrow .arrow_icon svg {
+         transition: transform 0.3s 0.02s ease;
+         margin-right: 1em;
+      }
+
+      a.arrow .arrow_icon::before,
+      span.arrow .arrow_icon::before {
+         content: "";
+         display: block;
+         position: absolute;
+         top: 50%;
+         left: 0;
+         width: 0;
+         height: 2px;
+         background: #38b2ac;
+         transform: translateY(-50%);
+         transition: width 0.3s ease;
+      }
+
+      a.arrow:hover .arrow_icon::before,
+      span.arrow:hover .arrow_icon::before {
+         width: 1em;
+      }
+
+      a.arrow:hover .arrow_icon svg,
+      span.arrow:hover .arrow_icon svg {
+         transform: translateX(0.75em);
+      }
+
+      /* .cover {
+         border-bottom-right-radius: 128px;
+      } */
+
+      .bg-blue-teal-gradient {
+         background: rgb(49, 130, 206);
+         background: linear-gradient(90deg, rgba(49, 130, 206, 1) 0%, rgba(56, 178, 172, 1) 100%);
+      }
+
+      /* @media (min-width: 1024px) {
+         .cover {
+         border-bottom-right-radius: 256px;
+         }
+      } */
+   </style>
   </head>
-  <body>
-    <section class="bg-white dark:bg-gray-900">
-     <div id="container-03" class="px-4 py-8 mx-auto max-w-md">
-         <div id="container-04">
-             <img src="https://placehold.co/50" alt="Imagen 1" class="w-full h-auto rounded">
-             <img src="https://placehold.co/50" alt="Imagen 2" class="w-full h-auto rounded">
-             <img src="https://placehold.co/50" alt="Imagen 3" class="w-full h-auto rounded">
-             <img src="https://placehold.co/50" alt="Imagen 4" class="w-full h-auto rounded">
-         </div>
-     </div>
- </section>
-    <main class="bg-slate-50 dark:bg-gray-900">
+  <body class="antialiased bg-white font-sans text-gray-900">
 
+  <main class="w-full">
 
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet"/>
+    <!-- start header -->
+    <header class="absolute top-0 left-0 w-full z-50 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64">
+      <div class="hidden md:flex justify-between items-center py-2 border-b text-sm py-3"
+        style="border-color: rgba(255,255,255,.25)">
+        <div class="">
+          <ul class="flex text-white">
+            <li>
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+                  <path
+                    d="M12,2C7.589,2,4,5.589,4,9.995C3.971,16.44,11.696,21.784,12,22c0,0,8.029-5.56,8-12C20,5.589,16.411,2,12,2z M12,14 c-2.21,0-4-1.79-4-4s1.79-4,4-4s4,1.79,4,4S14.21,14,12,14z" />
+                </svg>
 
+                <span class="ml-2">Av. 17 de Septiembre &, Milagro 091701</span>
+              </div>
+            </li>
+            <li class="ml-6">
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+                  <path
+                    d="M14.594,13.994l-1.66,1.66c-0.577-0.109-1.734-0.471-2.926-1.66c-1.193-1.193-1.553-2.354-1.661-2.926l1.661-1.66 l0.701-0.701L5.295,3.293L4.594,3.994l-1,1C3.42,5.168,3.316,5.398,3.303,5.643c-0.015,0.25-0.302,6.172,4.291,10.766 C11.6,20.414,16.618,20.707,18,20.707c0.202,0,0.326-0.006,0.358-0.008c0.245-0.014,0.476-0.117,0.649-0.291l1-1l0.697-0.697 l-5.414-5.414L14.594,13.994z" />
+                </svg>
 
-   <nav class="bg-white border-gray-200 dark:bg-gray-900">
-   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-         <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-      </a>
-      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-         <span class="sr-only">Open main menu</span>
-         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-         </svg>
-      </button>
-      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-         <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-         <li>
-            <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
-         </li>
-         <li>
-            <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
-         </li>
-         <li>
-            <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
-         </li>
-         <li>
-            <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
-         </li>
-         <li>
-            <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-         </li>
-         </ul>
+                <span class="ml-2">+593 993059360</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="">
+          <ul class="flex justify-end text-white">
+            <li>
+              <a href="https://www.facebook.com/davidalmeidaec?locale=es_LA" target="_blank" title="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                  <path
+                    d="M20,3H4C3.447,3,3,3.448,3,4v16c0,0.552,0.447,1,1,1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325,1.42-3.592,3.5-3.592	c0.699-0.002,1.399,0.034,2.095,0.107v2.42h-1.435c-1.128,0-1.348,0.538-1.348,1.325v1.735h2.697l-0.35,2.725h-2.348V21H20	c0.553,0,1-0.448,1-1V4C21,3.448,20.553,3,20,3z">
+                  </path>
+                </svg>
+              </a>
+            </li>
+
+          </ul>
+        </div>
       </div>
-   </div>
-   </nav>
 
-   <main class="bg-slate-50 dark:bg-gray-900">
-      <div id="container-01" class="mx-auto px-4 py-20 text-center">
-         <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">Tu presencia digital comienza aquí</h1>
-         <p class="mt-6 text-lg leading-relaxed text-gray-600 max-w-2xl mx-auto dark:text-gray-300">Creamos experiencias web atractivas y rápidas con Tailwind CSS 4.1. Dale vida a tus ideas con un diseño moderno y responsivo.</p>
-         <div id="container-02" class="mt-8 flex justify-center gap-4">
-            <button id="start" class="inline-block px-6 py-3 text-white bg-blue-600 rounded-lg">Comenzar</button>
-            <button id="demo" class="inline-block px-6 py-3 border border-gray-300 text-gray-700 rounded-lg dark:border-gray-600 dark:text-white">Ver demo</button>
-         </div>
+      <div class="flex flex-wrap items-center justify-between py-6">
+        <div class="w-1/2 md:w-auto">
+          <a href="index.html" class="text-white font-bold text-2xl">
+            DENTALMEIDA
+          </a>
+        </div>
+
+        <label for="menu-toggle" class="pointer-cursor md:hidden block"><svg class="fill-current text-white"
+            xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+            <title>menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+          </svg></label>
+
+        <input class="hidden" type="checkbox" id="menu-toggle">
+
+        <div class="hidden md:block w-full md:w-auto" id="menu">
+          <nav
+            class="w-full bg-white md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none">
+            <ul class="md:flex items-center">
+              <li><a class="py-2 inline-block md:text-white md:hidden lg:block font-semibold" href="#sobre-nosotros">Sobre nosotros</a></li>
+              <li class="md:ml-4"><a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+                  href="#tratamientos">Tratamientos</a></li>
+              <li class="md:ml-4"><a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+                  href="#testimonios">Testimonios</a></li>
+               <li class="md:ml-4"><a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+                  href="#resultados">Resultados</a></li>
+              <li class="md:ml-4"><a class="py-2 inline-block md:text-white md:px-2 font-semibold" href="#contacto">Contáctanos</a></li>
+              <li class="md:ml-6 mt-3 md:mt-0">
+                <a class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 md:bg-transparent md:text-white border border-white rounded"
+                  href="book-appointment.html">Reservar cita</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
-   </main>
+    </header>
+    <!-- end header -->
 
-   <section class="bg-white dark:bg-gray-900">
-      <div id="container-03" class="md:max-w-xl max-w-md px-4 py-8 mx-auto">
-         <div id="container-04" class="grid grid-cols-2 gap-4 md:grid-cols-4">
-            <img src="https://placehold.co/50" alt="Imagen 1" class="w-full h-auto rounded">
-            <img src="https://placehold.co/50" alt="Imagen 2" class="w-full h-auto rounded">
-            <img src="https://placehold.co/50" alt="Imagen 3" class="w-full h-auto rounded">
-            <img src="https://placehold.co/50" alt="Imagen 4" class="w-full h-auto rounded">
-         </div>
+    <!-- start hero -->
+    <div class="bg-gray-100">
+      <section class="cover bg-blue-teal-gradient relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex
+      items-center min-h-screen">
+        <div class="h-full absolute top-0 left-0 right-0 z-0">
+          <img src="./images/Logo.jpg" alt="" class="w-full h-full object-cover opacity-20">
+        </div>
+
+        <div class="lg:w-3/4 xl:w-2/4 relative z-10 h-100 lg:mt-16">
+          <div>
+            <h1 class="text-white text-4xl md:text-5xl xl:text-6xl font-bold leading-tight">Una vida mejor comienza con una bella sonrisa.</h1>
+            <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">Bienvenido al consultorio de David Almeida, donde la confianza y comodidad son prioridades.</p>
+            <a href="#" class="px-8 py-4 bg-teal-500 text-white rounded inline-block mt-8 font-semibold">Reservar Cita</a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- end hero -->
+
+    <!-- start about -->
+    <section class="relative px-4 py-16 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 lg:py-32" id="sobre-nosotros">
+      <div class="flex flex-col lg:flex-row lg:-mx-8">
+        <div class="w-full lg:w-1/2 lg:px-8">
+          <h2 class="text-3xl leading-tight font-bold mt-4">David Almeida</h2>
+          <p class="text-lg mt-4 font-semibold">Excelencia en odontologia desde Ecuador</p>
+          <p class="mt-2 leading-relaxed">
+            Desde muy pequeño supe que quería ser odontólogo, ya que siempre sentí una profunda vocación por ayudar a recuperar la salud y confianza personal a través de una sonrisa. Este propósito me ha guiado a lo largo de toda mi carrera profesional. Realicé mis estudios de pregrado en la Universidad de Guayaquil, donde adquirí una sólida base clínica y académica. Posteriormente, perfeccioné mi formación con un posgrado en la reconocida Universidad de São Paulo, especializándome en Rehabilitación Oral y Estética. Durante varios años trabajé en una institución de alto prestigio como lo es OmniHospital donde consolidé mi experiencia atendiendo casos complejos y trabajando en equipos multidisciplinarios. in embargo, motivado por el deseo de aportar directamente a mi comunidad, decidí regresar a mi ciudad natal, Milagro, y abrir mi propio consultorio odontológico. Actualmente, cuento con una infraestructura moderna y trabajo en conjunto con la Dra. Fiamma Aguirre, especialista en Endodoncia, para ofrecer un catálogo de servicios odontológicos más completo.
+
+
+          </p>
+        </div>
+
+        <div class="w-full lg:w-1/2 lg:px-8 mt-12 lg:mt-0">
+            <img src="./images/titular.jpg" alt="Foto del Doctor" class="mt-15">
+        </div>
       </div>
-   </section>
-   <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
-    <main class="bg-slate-50" class="dark:bg-gray-900">
+      <div class="md:flex md:flex-wrap mt-24 text-center md:-mx-4" id="tratamientos">
+        <div class="md:w-1/2 md:px-4 lg:w-1/4">
+          <div class="bg-white rounded-lg border border-gray-300 p-8">
+            <img src="images/teeth-whitening.svg" alt="" class="h-20 mx-auto">
 
-   <div id="toast-interactive"
-         class="hidden fixed right-5 bottom-5 flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow-sm dark:text-gray-400 dark:divide-gray-700 dark:bg-gray-800"
-         role="alert">
-         <div class="flex">
+            <h4 class="text-xl font-bold mt-4">Blanqueamiento Dental</h4>
+            <p class="mt-1">Luce una sonrisa más blanca y brillante en una sola sesión.</p>
+            <a href="#" class="block mt-4"></a>
+          </div>
+        </div>
 
-             <!-- Content -->
-             <div class="ms-3 text-sm font-normal">
-                 <span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white">Suscríbete ahora</span>
-                 <div class="mb-2">Suscríbete ahora para obtener beneficios de cliente premium y pro.</div>
-                 <div class="grid grid-cols-2 gap-2">
-                 <div>
-                     <a href="#"
-                     class="inline-flex justify-center w-full px-2 py-1.5 text-xs font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800">Sí, quiero</a>
-                 </div>
-                 <div>
-                     <a href="#"
-                     class="inline-flex justify-center w-full px-2 py-1.5 text-xs font-medium text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">No ahora</a>
-                 </div>
-                 </div>
-             </div>
+        <div class="md:w-1/2 md:px-4 mt-4 md:mt-0 lg:w-1/4">
+          <div class="bg-white rounded-lg border border-gray-300 p-8">
+            <img src="images/oral-surgery.svg" alt="" class="h-20 mx-auto">
 
-             <!-- Close button -->
-             <button type="button"
-                 class="ms-auto -mx-1.5 -my-1.5 p-1.5 inline-flex items-center justify-center w-8 h-8 text-gray-400 bg-white rounded-lg hover:text-gray-900 hover:bg-gray-100 focus:ring-2 focus:ring-gray-300 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-                 data-dismiss-target="#toast-interactive" aria-label="Close">
-                 <span class="sr-only">Close</span>
-                 <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" aria-hidden="true">
-                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                     d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                 </svg>
-             </button>
-         </div>
-     </div>
-     <script src="./js/file01.js" defer></script>
-  </body>
+            <h4 class="text-xl font-bold mt-4">Cirugía Oral</h4>
+            <p class="mt-1">Cirugías orales seguras, precisas y con recuperación rápida.</p>
+            <a href="#" class="block mt-4"></a>
+          </div>
+        </div>
+
+        <div class="md:w-1/2 md:px-4 mt-4 md:mt-8 lg:mt-0 lg:w-1/4">
+          <div class="bg-white rounded-lg border border-gray-300 p-8">
+            <img src="images/painless-dentistry.svg" alt="" class="h-20 mx-auto">
+
+            <h4 class="text-xl font-bold mt-4">Endodoncia</h4>
+            <p class="mt-1">Salvamos tu diente con tratamientos de endodoncia sin dolor.</p>
+            <a href="#" class="block mt-4"></a>
+          </div>
+        </div>
+
+        <div class="md:w-1/2 md:px-4 mt-4 md:mt-8 lg:mt-0 lg:w-1/4">
+          <div class="bg-white rounded-lg border border-gray-300 p-8">
+            <img src="images/periodontics.svg" alt="" class="h-20 mx-auto">
+
+            <h4 class="text-xl font-bold mt-4">Periodoncia</h4>
+            <p class="mt-1">Cuidamos tus encías para una sonrisa sana y duradera..</p>
+            <a href="#" class="block mt-4"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end about -->
+
+    <!-- start testimonials -->
+    <section class="relative bg-gray-100 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-10 lg:py-20" id="testimonios">
+      <div class="flex flex-col lg:flex-col justify-center items-center lg:-mx-8">
+        <div class="w-full lg:w-1/2 lg:px-8">
+          <h2 class="text-3xl leading-tight font-bold mt-4 text-center">Día en el consultorio + testimonio </h2>
+          <p class="mt-2 leading-relaxed"></p>
+        </div>
+
+        <div class="w-full md:w-3/6 md:mx-auto mt-12 mt:md-0">
+
+            <video src="./images/DentAlmeida.mp4" controls class="w-full h-full rounded-lg">
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end testimonials -->
+
+    <!-- start blog -->
+    <section class="relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-32" id="resultados">
+      <div class="mb-10 text-left">
+        <p class="text-5xl leading-tight font-bold text-3xl">Resultados</p>
+      </div>
+      <div class="flex flex-wrap gap-10 justify-center">
+         <img src="./images/resultado1.jpg" alt="Resultado Dental 1" class="mt-4 rounded-lg w-1/3">
+         <img src="./images/resultado2.jpg" alt="Resultados Dental 2" class="mt-4 rounded-lg w-1/3">
+         <img src="./images/resultado3.jpg" alt="Resultado Dental 3" class="mt-4 rounded-lg w-1/3">
+         <img src="./images/resultado4.webp" alt="Resultado Dental 4" class="mt-4 rounded-lg w-1/3">
+         <img src="./images/resultado5.webp" alt="Resultado Dental 4" class="mt-4 rounded-lg w-1/3">
+
+      </div>
+
+    </section>
+    <!-- end blog -->
+
+    <!-- start cta -->
+    <section
+      class="relative bg-blue-teal-gradient px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-12 text-center md:text-left">
+      <div class="md:flex md:items-center md:justify-center">
+        <h2 class="text-xl font-bold text-white">Contáctanos hoy mismo! <br class="block md:hidden">LLámanos al: +593 993-059-360</h2>
+        <a href="#"
+          class="px-8 py-4 bg-white text-blue-600 rounded inline-block font-semibold md:ml-8 mt-4 md:mt-0">Reservar Cita</a>
+      </div>
+    </section>
+    <!-- end cta -->
+
+    <!-- start footer -->
+    <footer class="relative bg-gray-900 text-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-12 lg:py-24" id="contacto">
+      <div class="flex flex-col md:flex-row">
+        <div class="w-full lg:w-2/6 lg:mx-4 lg:pr-8">
+          <h3 class="font-bold text-2xl">DentalMeida</h3>
+          <img src="./images/logo2.jpg" alt="Logo2" class="mt-4 w-32 h-32 rounded-full">
+        </div>
+
+        <div class="w-full lg:w-1/6 mt-8 lg:mt-0 lg:mx-4">
+          <h5 class="uppercase tracking-wider font-semibold text-gray-500">Tratamientos</h5>
+          <ul class="mt-4">
+            <li class="mt-2">Blanqueamiento Dental</li>
+            <li class="mt-2">Cirugía Oral</li>
+            <li class="mt-2">Endodoncia</li>
+            <li class="mt-2">Periodoncia</li>
+          </ul>
+        </div>
+
+        <div class="w-full lg:w-2/6 mt-8 lg:mt-0 lg:mx-4 lg:pr-8">
+          <h5 class="uppercase tracking-wider font-semibold text-gray-500">Contacto</h5>
+          <ul class="mt-4">
+            <li>
+              <a href="#" title="" class="block flex items-center opacity-75 hover:opacity-100">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    class="fill-current">
+                    <path
+                      d="M12,2C7.589,2,4,5.589,4,9.995C3.971,16.44,11.696,21.784,12,22c0,0,8.029-5.56,8-12C20,5.589,16.411,2,12,2z M12,14 c-2.21,0-4-1.79-4-4s1.79-4,4-4s4,1.79,4,4S14.21,14,12,14z" />
+                  </svg>
+                </span>
+                <span class="ml-3">
+                  Av. 17 de Septiembre &, Milagro 091701
+                </span>
+              </a>
+            </li>
+            <li class="mt-4">
+              <a href="#" title="" class="block flex items-center opacity-75 hover:opacity-100">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    class="fill-current">
+                    <path
+                      d="M12,2C6.486,2,2,6.486,2,12s4.486,10,10,10c5.514,0,10-4.486,10-10S17.514,2,12,2z M12,20c-4.411,0-8-3.589-8-8 s3.589-8,8-8s8,3.589,8,8S16.411,20,12,20z" />
+                    <path d="M13 7L11 7 11 13 17 13 17 11 13 11z" /></svg>
+                </span>
+                <span class="ml-3">
+                  Lunes - Viernes: 9:00 - 17:00<br>
+                </span>
+              </a>
+            </li>
+            <li class="mt-4">
+              <a href="#" title="" class="block flex items-center opacity-75 hover:opacity-100">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    class="fill-current">
+                    <path
+                      d="M14.594,13.994l-1.66,1.66c-0.577-0.109-1.734-0.471-2.926-1.66c-1.193-1.193-1.553-2.354-1.661-2.926l1.661-1.66 l0.701-0.701L5.295,3.293L4.594,3.994l-1,1C3.42,5.168,3.316,5.398,3.303,5.643c-0.015,0.25-0.302,6.172,4.291,10.766 C11.6,20.414,16.618,20.707,18,20.707c0.202,0,0.326-0.006,0.358-0.008c0.245-0.014,0.476-0.117,0.649-0.291l1-1l0.697-0.697 l-5.414-5.414L14.594,13.994z" />
+                  </svg>
+                </span>
+                <span class="ml-3">
+                  +593 993-059-360
+                </span>
+              </a>
+            </li>
+            <li class="mt-4">
+              <a href="#" title="" class="block flex items-center opacity-75 hover:opacity-100">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    class="fill-current">
+                    <path
+                      d="M20,4H4C2.896,4,2,4.896,2,6v12c0,1.104,0.896,2,2,2h16c1.104,0,2-0.896,2-2V6C22,4.896,21.104,4,20,4z M20,8.7l-8,5.334 L4,8.7V6.297l8,5.333l8-5.333V8.7z" />
+                  </svg>
+                </span>
+                <span class="ml-3">
+                  dentalMeida@gmail.com
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="w-full lg:w-1/6 mt-8 lg:mt-0 lg:mx-4">
+          <h5 class="uppercase tracking-wider font-semibold text-gray-500">Redes</h5>
+          <ul class="mt-4 flex">
+            <li>
+              <a href="https://www.facebook.com/davidalmeidaec?locale=es_LA" target="_blank" title="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                  <path
+                    d="M20,3H4C3.447,3,3,3.448,3,4v16c0,0.552,0.447,1,1,1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325,1.42-3.592,3.5-3.592	c0.699-0.002,1.399,0.034,2.095,0.107v2.42h-1.435c-1.128,0-1.348,0.538-1.348,1.325v1.735h2.697l-0.35,2.725h-2.348V21H20	c0.553,0,1-0.448,1-1V4C21,3.448,20.553,3,20,3z" />
+                </svg>
+              </a>
+            </li>
+
+          </ul>
+
+          <p class="text-sm text-gray-400 mt-12">© 2025 DENTALMEIDA <br class="hidden lg:block">Derechos Reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- end footer -->
+
+  </main>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131505823-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-131505823-4');
+  </script>
+
+</body>
 </html>
