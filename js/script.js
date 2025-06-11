@@ -1,5 +1,7 @@
 "use strict";
 
+import { saveVote, getVotes } from "./firebase.js";
+
 function hoverNav() {
     // Selecciona los elementos con id "nav-link" y clase "nav-item"
     const navLinks = document.querySelectorAll('#nav-link');
@@ -142,13 +144,67 @@ function hoverCita3() {
     });
 }
 
+async function displayVotes() {
+    const results = document.getElementById('results');
+    if (!results) return;
+
+    const votes = await getVotes();
+    if (!votes) {
+        results.innerHTML = "<p>No hay votos registrados.</p>";
+        return;
+    }
+
+    // Contar votos por producto
+    const voteCounts = {};
+    Object.values(votes).forEach(vote => {
+        if (vote.productID) {
+            voteCounts[vote.productID] = (voteCounts[vote.productID] || 0) + 1;
+        }
+    });
+
+    // Crear tabla
+    let table = `<table>
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Total de votos</th>
+            </tr>
+        </thead>
+        <tbody>`;
+    for (const [product, count] of Object.entries(voteCounts)) {
+        table += `<tr><td>${product}</td><td>${count}</td></tr>`;
+    }
+    table += `</tbody></table>`;
+
+    results.innerHTML = table;
+}
+
+function enableForm() {
+    const form = document.getElementById('form_voting');
+    if (!form) return;
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const selectProduct = document.getElementById('select_product');
+        if (!selectProduct) return;
+        const productID = selectProduct.value;
+
+        await saveVote(productID);
+
+        form.reset();
+        await displayVotes();
+    });
+}
+
+
+
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
         hoverNav();
         hoverCita();
         hoverCita2();
         hoverCita3();
+        enableForm();
+        displayVotes();
     });
 })();
-
-//test2
