@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-
+    <link rel="stylesheet" href="src/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="js/script.js"></script>
     <title>DentalPro</title>
 
    <style>
+
+
       #menu-toggle:checked+#menu {
          display: block;
       }
@@ -133,7 +136,7 @@
         </div>
       </div>
 
-      <div class="flex flex-wrap items-center justify-between py-6">
+      <div id="main-bar" class="flex flex-wrap items-center justify-between py-6">
         <div class="w-1/2 md:w-auto">
           <a href="index.html" class="text-white font-bold text-2xl">
             DENTALMEIDA
@@ -150,18 +153,18 @@
 
         <div class="hidden md:block w-full md:w-auto" id="menu">
           <nav
-            class="w-full bg-white md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none">
-            <ul class="md:flex items-center">
-              <li><a class="py-2 inline-block md:text-white md:hidden lg:block font-semibold" href="#sobre-nosotros">Sobre nosotros</a></li>
-              <li class="md:ml-4"><a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+            id="nav-bar" class="w-full bg-white md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none">
+            <ul id="nav-menu" class="md:flex items-center">
+              <li id="nav-item"><a id="nav-link" class="p-3 rounded-full py-2 inline-block md:text-white md:hidden lg:block font-semibold" href="#sobre-nosotros">Sobre nosotros</a></li>
+              <li id="nav-item" class="md:ml-4"><a id="nav-link" class="rounded-full py-2 inline-block md:text-white md:px-2 font-semibold"
                   href="#tratamientos">Tratamientos</a></li>
-              <li class="md:ml-4"><a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+              <li id="nav-item" class="md:ml-4"><a id="nav-link" class="rounded-full py-2 inline-block md:text-white md:px-2 font-semibold"
                   href="#testimonios">Testimonios</a></li>
-               <li class="md:ml-4"><a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+               <li id="nav-item" class="md:ml-4"><a id="nav-link" class="rounded-full py-2 inline-block md:text-white md:px-2 font-semibold"
                   href="#resultados">Resultados</a></li>
-              <li class="md:ml-4"><a class="py-2 inline-block md:text-white md:px-2 font-semibold" href="#contacto">Contáctanos</a></li>
-              <li class="md:ml-6 mt-3 md:mt-0">
-                <a class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 md:bg-transparent md:text-white border border-white rounded"
+              <li id="nav-item" class="md:ml-4"><a id="nav-link" class="rounded-full py-2 inline-block md:text-white md:px-2 font-semibold" href="#contacto">Contáctanos</a></li>
+              <li id="res-cita" class="md:ml-6 mt-3 md:mt-0">
+                <a id="cita" class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 md:bg-transparent md:text-white border border-white rounded"
                   href="book-appointment.html">Reservar cita</a>
               </li>
             </ul>
@@ -183,7 +186,7 @@
           <div>
             <h1 class="text-white text-4xl md:text-5xl xl:text-6xl font-bold leading-tight">Una vida mejor comienza con una bella sonrisa.</h1>
             <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">Bienvenido al consultorio de David Almeida, donde la confianza y comodidad son prioridades.</p>
-            <a href="#" class="px-8 py-4 bg-teal-500 text-white rounded inline-block mt-8 font-semibold">Reservar Cita</a>
+            <a id="res-cita2" href="#" class="px-8 py-4 bg-teal-500 text-white rounded inline-block mt-8 font-semibold border-transparent border-white">Reservar Cita</a>
           </div>
         </div>
       </section>
@@ -292,7 +295,7 @@
       class="relative bg-blue-teal-gradient px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-12 text-center md:text-left">
       <div class="md:flex md:items-center md:justify-center">
         <h2 class="text-xl font-bold text-white">Contáctanos hoy mismo! <br class="block md:hidden">LLámanos al: +593 993-059-360</h2>
-        <a href="#"
+        <a id="res-cita3" href="#"
           class="px-8 py-4 bg-white text-blue-600 rounded inline-block font-semibold md:ml-8 mt-4 md:mt-0">Reservar Cita</a>
       </div>
     </section>
