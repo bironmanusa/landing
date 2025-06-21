@@ -142,6 +142,81 @@ function hoverCita3() {
     });
 }
 
+// efecto fade-in al hacer scroll
+function revealOnScroll() {
+  const reveals = document.querySelectorAll('.reveal');
+  
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    const offset = 100; // margen antes de que aparezca
+
+    if (elementTop < windowHeight - offset) {
+      el.classList.add('activo');
+    } else {
+      el.classList.remove('activo'); // opcional si quieres que se oculte de nuevo
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+//efecto typping frase portada
+let text = "Una vida mejor comienza con una bella sonrisa.";
+let index = 0;
+function type() {
+  if (index < text.length) {
+    document.getElementById("frase").innerHTML += text.charAt(index);
+    index++;
+    setTimeout(type, 80); // velocidad en milisegundos
+  } else {
+    setTimeout(() => {
+      document.getElementById("frase").innerHTML = "";
+      index = 0;
+      type();
+    }, 2000); 
+  }
+}
+
+window.addEventListener('DOMContentLoaded', type);
+//efecto typping resultados
+let text2 = "Resultados";
+let index2 = 0;
+function type2() {
+  if (index2 < text2.length) {
+    document.getElementById("titulo_resultado").innerHTML += text2.charAt(index2);
+    index2++;
+    setTimeout(type2, 100); // velocidad en milisegundos
+  } else {
+    setTimeout(() => {
+      document.getElementById("titulo_resultado").innerHTML = "";
+      index2 = 0;
+      type2();
+    }, 2000); 
+  }
+}
+window.addEventListener('DOMContentLoaded', type2);
+
+//efecto typping testimonio
+let text3 = "Día en el consultorio + testimonio ";
+let index3 = 0;
+function type3() {
+  if (index3 < text3.length) {
+    document.getElementById("dt").innerHTML += text3.charAt(index3);
+    index3++;
+    setTimeout(type3, 100); // velocidad en milisegundos
+  } else {
+    setTimeout(() => {
+      document.getElementById("dt").innerHTML = "";
+      index3 = 0;
+      type3();
+    }, 2000); 
+  }
+}
+window.addEventListener('DOMContentLoaded', type3);
+
+
+
+
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
         hoverNav();

@@ -1,0 +1,20 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.activo{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tratamiento {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.tratamiento:hover,
+.tratamiento:focus {
+  transform: scale(1.1);
+}
