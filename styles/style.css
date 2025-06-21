@@ -18,3 +18,75 @@
 .tratamiento:focus {
   transform: scale(1.1);
 }
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Comentarios a la izquierda */
+#resultados {
+  flex: 1;
+  max-width: 450px;
+  background: #f8f9ff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+/* Formulario a la derecha */
+#myForm {
+  flex: 1;
+  max-width: 400px;
+  padding: 25px 30px;
+  background: #f0f4ff;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(63, 81, 181, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input y botón estilos (igual que antes) */
+#myForm input,
+#myForm textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1.5px solid #cbd6ff;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#myForm button {
+  padding: 14px 0;
+  background-color: #3f51b5;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#myForm button:hover {
+  background-color: #2c387e;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  #resultados,
+  #myForm {
+    max-width: 100%;
+  }
+}

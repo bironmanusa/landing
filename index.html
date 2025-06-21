@@ -162,7 +162,7 @@
               <li id="nav-item" class="md:ml-4"><a id="nav-link" class="rounded-full py-2 inline-block md:text-white md:px-2 font-semibold"
                   href="#testimonios">Testimonios</a></li>
                <li id="nav-item" class="md:ml-4"><a id="nav-link" class="rounded-full py-2 inline-block md:text-white md:px-2 font-semibold"
-                  href="#resultados">Resultados</a></li>
+                  href="#resultado">Resultados</a></li>
               <li id="nav-item" class="md:ml-4"><a id="nav-link" class="rounded-full py-2 inline-block md:text-white md:px-2 font-semibold" href="#contacto">Contáctanos</a></li>
               <li id="res-cita" class="md:ml-6 mt-3 md:mt-0">
                 <a id="cita" class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 md:bg-transparent md:text-white border border-white rounded"
@@ -275,7 +275,7 @@
     <!-- end testimonials -->
 
     <!-- start blog -->
-    <section class="reveal relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-32" id="resultados">
+    <section class="reveal relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-32" id="resultado">
       <div class="mb-10 text-left">
         <p class="text-5xl leading-tight font-bold text-3xl" id="titulo_resultado"></p>
       </div>
@@ -290,7 +290,23 @@
 
     </section>
     <!-- end blog -->
+    
+    <!-- end formulario -->
+    <div class="container">
+      <form id="myForm">
+        <input type="text" name="nombre" placeholder="Nombre" required />
+        <input type="email" name="correo" placeholder="Correo electrónico" required />
+        <input type="tel" name="telefono" placeholder="Número de teléfono" required />
+        <textarea name="comentario" placeholder="Comentario" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <div id="resultados">
+      <!-- Comentarios se mostrarán aquí -->
+      </div>
+    </div>
 
+
+    <!-- end formulario -->
     <!-- start cta -->
     <section
       class="relative bg-blue-teal-gradient px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-12 text-center md:text-left">
@@ -302,6 +318,7 @@
     </section>
     <!-- end cta -->
 
+    
     
 
     <!-- start footer -->
@@ -404,13 +421,10 @@
       </div>
     </footer>
     <!-- end footer -->
-
+  <script type="module" src="./js/firebase.js"></script>
+  
   </main>
-  <form id="form_voting">
-    <input type="text" id="nombre" name="nombre" required><br><br>
-    <input type="submit" value="Enviar">
 
-  </form>
   <script type="module" src="./js/file01.js" defer></script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
